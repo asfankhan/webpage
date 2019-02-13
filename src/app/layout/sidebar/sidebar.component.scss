@@ -1,0 +1,79 @@
+
+$SidebarWidth: 40px;
+
+.row, .col-12{
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.sidebarIcon{
+    line-height: $SidebarWidth;
+    font-size: 16px;
+}
+
+.sidebarTab{
+    @extend .row;
+    height: $SidebarWidth;
+    text-align: center;
+    color: #aaa;
+    -webkit-transition-duration: 5s; 
+    transition-duration: .5s;
+
+    &:hover{
+        background: #474747;
+        cursor: pointer;
+    }
+
+    &:active{
+        background: #575757;
+        color: #ccc;
+        cursor: pointer;
+    }
+}
+
+.focus{
+    background: #335353;
+
+    &:hover{
+        background: #335353;
+        cursor: pointer;
+    }
+}
+
+.menuTab{
+    background: #363636;
+    top: -$SidebarWidth;
+    left: $SidebarWidth;
+    position: relative;
+    width: 150px;
+    opacity: 1;
+}
+
+.menuTabItem{
+    // border:.1px solid #333;
+
+    -webkit-transition-duration: 5s; 
+    transition-duration: .5s;
+  
+    &:hover{
+        background: #575757;
+        cursor: pointer;
+    }
+
+    &:active{
+        background: #335353;
+        cursor: pointer;
+    }
+}
+
+.menuFocus{
+    background: #335353;
+    color:white;
+
+    &:hover{
+        background: #335353;
+        cursor: pointer;
+    }
+}

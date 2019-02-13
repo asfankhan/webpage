@@ -1,0 +1,40 @@
+<div style="height: 100%;" >
+
+    <div class="row sidebarTab" [ngClass]="{focus:sidebarItem==0}">
+        <i class="fas fa-home col-12 text-center sidebarIcon" (mouseenter) ="showSidebarTab=0" (mouseleave) ="showSidebarTab=-1">
+            <div  *ngIf="showSidebarTab==0"  [@openClose]="showSidebarTab==0 ? true : false" class="menuTab" >
+                <div class="row menuTabItem" [ngClass]="{menuFocus:menuItem==0 && sidebarItem==0}">
+                    <div class="col-12 text-center" (click)="selectMenuItem(0,0);">Home</div> 
+                </div>
+                <div class="row menuTabItem" [ngClass]="{menuFocus:menuItem==1 && sidebarItem==0}">
+                    <div class="col-12 text-center" (click)="selectMenuItem(0,1);">Other</div> 
+                </div>
+            </div>
+        </i>
+    </div>
+        
+    <div class="row" style="height: 80px"></div>
+
+    <div class="row sidebarTab" [ngClass]="{focus:sidebarItem==1}">
+        <i class="fa fa-address-card col-12 text-center sidebarIcon" (mouseenter) ="showSidebarTab=1" (mouseleave) ="showSidebarTab=-1">
+            <div  *ngIf="showSidebarTab==1" class="menuTab" >
+                <div class="row menuTabItem" [ngClass]="{menuFocus:menuItem==0 && sidebarItem==1}">
+                    <div class="col-12 text-center" (click)="selectMenuItem(1,0);">Profile</div> 
+                </div>
+            </div>
+        </i>
+    </div>        
+
+    <div class="row sidebarTab" [ngClass]="{focus:sidebarItem==2}">
+        <i class="fas fa-lightbulb col-12 text-center sidebarIcon" (mouseenter) ="showSidebarTab=2" (mouseleave) ="showSidebarTab=-1">
+    
+        </i>
+    </div>  
+    
+    <div class="row sidebarTab" [ngClass]="{focus:sidebarItem==3}">
+        <i class="fas fa-align-justify col-12 text-center sidebarIcon" (mouseenter) ="showSidebarTab=3" (mouseleave) ="showSidebarTab=-1">
+    
+        </i>
+    </div>  
+
+</div>
