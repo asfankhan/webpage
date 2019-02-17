@@ -1,19 +1,21 @@
 $SidebarWidth: 40px;
 
-main{
+.main{
+    position: fixed;
+    height: 100%;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
 }
-sidebar{
-    width:$SidebarWidth;
-    height: 100%;
-    background: #363636;
-    position: absolute;
-    top: 0px;
-    z-index: 10;
 
-}
+// .sidebar{
+//     width:$SidebarWidth;
+//     height: 100%;
+//     background: #363636;
+//     position: absolute;
+//     top: 0px;
+//     z-index: 10;
+
+// }
+
 .screen{
     position: absolute;
     left: $SidebarWidth;

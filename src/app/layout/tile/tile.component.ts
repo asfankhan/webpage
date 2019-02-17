@@ -9,8 +9,11 @@ export class TileComponent implements OnInit {
 
   @Input() data;
 
+  @Input() edge;
+
   @Input() bodyTemplate: TemplateRef <any>;
 
+  
   inputData={
     width:'',
     background:''
@@ -21,15 +24,23 @@ export class TileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.edge)
     this.inputData.width = '200px';
     this.inputData.background = this.data.background;
 
   }
 
-  onMouseHover(){
-    this.onHover=1;
-    this.inputData.width = '500px'
-    this.inputData.background = this.data.background2;
+  onClick(){
+    if(this.onHover==0){
+      this.onHover=1;
+      this.inputData.width = '500px'
+      this.inputData.background = this.data.background2;  
+    }else{
+      this.onHover=0;
+      this.inputData.width = '200px'
+      this.inputData.background = this.data.background;
+  
+    }
   }
 
   onMouseLeave(){

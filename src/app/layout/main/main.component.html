@@ -1,7 +1,18 @@
-<div class="row" style="height: 100%;overflow: auto;">
 
-  <tile *ngFor="let data of objStyle" [data]="data" [bodyTemplate]='oneTemplate'></tile>
+<div style="height: 100%;width: calc( 100% - 40px);left: 40px;position: absolute;">
+  <div class="left" (mouseenter)="scrollRight=false;scrollLeft=true" (mouseleave)="scrollLeft=false">
+    <i class="fas fa-caret-left arrow"></i>
+  </div>
 
+  <div class="row scrolling-wrapper-flexbox" style="">
+
+    <tile class="card-wrapper" *ngFor="let data of objStyle; let i = index" [data]="data" [edge]='isEdge(i)' [bodyTemplate]='oneTemplate'></tile>
+
+  </div>
+
+  <div class="right" (mouseenter)="scrollRight=true;scrollLeft=false" (mouseleave)="scrollRight=false">
+    <i class="fas fa-caret-right arrow"></i>
+  </div>
 </div>
 
 <ng-template #oneTemplate>
