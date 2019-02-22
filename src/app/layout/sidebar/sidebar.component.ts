@@ -5,6 +5,7 @@ import {
   style,
   animate,
   transition} from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sidebar',
@@ -22,16 +23,19 @@ export class SidebarComponent implements OnInit {
 
   showSidebarTab = -1;
 
-  sidebarItem = -1;
-  menuItem = -1;
+  sidebarItem = 0;
+  menuItem = 0;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-  
-  selectMenuItem(sidebarItem, menuItem){
+  private ChangeRoute(route:any,sidebarItem, menuItem){
+    this.router.navigate([route]);
     this.sidebarItem = sidebarItem;
     this.menuItem = menuItem;
+  }
+
+  selectMenuItem(){
   }
 }

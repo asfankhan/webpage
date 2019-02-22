@@ -24,10 +24,8 @@ export class TileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.edge)
     this.inputData.width = '200px';
     this.inputData.background = this.data.background;
-
   }
 
   onClick(){

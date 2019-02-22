@@ -10,7 +10,8 @@ const LAYOUT_ROUTES: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'home', component: MainComponent },
+      { path: '', component: MainComponent },
+      { path: 'chat', component: MainComponent },
     ],
   },
 ];
