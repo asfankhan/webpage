@@ -1,0 +1,31 @@
+<div #loginView class="row" style="position: absolute; z-index: 10;background: #555; width: 300px;box-shadow: 1px 1px 6px #333"
+  [ngStyle]="{left : position.x + 'px', top: position.y + 'px'}">
+  
+  <div class="col-12 row" style="width: 100%;background: #444; color: white; height: 25px; font-weight: 500;">
+    <div class="col-11" style="padding-left: 10px;" 
+      (mousedown)="getDiv($event, loginView)"  (mousemove)="moveDiv($event)" (mouseup)="setDiv($event)" (mouseleave)="setDiv($event)">
+        {{User ? User.name : "Not Logged In"}}
+    </div>
+    <div class="col-1" style="background: #333; color:white; cursor: pointer;" (click)="hideDisplay=!hideDisplay" >
+        <i class="fas fa-minus col-12 text-center sidebarIcon"></i>
+    </div>
+  </div>
+
+  <form  *ngIf="!hideDisplay" [@fadeInOut] class="col-12" >
+    <div class="form-group">
+      <input type="email" [(ngModel)]="enteredEmail" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+        <input type="password" [(ngModel)]="enteredPassword" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleFormControlInput2" placeholder="******">
+    </div>
+  </form>
+  
+  <div *ngIf="!hideDisplay" [@fadeInOut] class="col-6" style="opacity: 1">
+    <button (click)="login()" class="btn btn-primary" style="width: 100%; font-weight: 500; border-radius: 0px;">Login</button>
+  </div>
+  
+  <div *ngIf="!hideDisplay" [@fadeInOut] class="col-6">
+    <button (click)="register()" class="btn btn-info" style="width: 100%; font-weight: 500; border-radius: 0px;">SignUp</button>
+  </div>
+
+</div>
