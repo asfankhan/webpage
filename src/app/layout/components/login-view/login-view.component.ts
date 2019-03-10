@@ -46,13 +46,21 @@ export class LoginViewComponent implements OnInit {
 
   }
 
+  LoginError = ''
   login(){
+    console.log(this.enteredEmail + "-" + this.enteredPassword)
     this.itemDoc = this.afs.doc('Users/'+ this.enteredEmail + "-" + this.enteredPassword );
     this.item = this.itemDoc.valueChanges().subscribe( data => {
-		  console.log("--==valueChanges==--");
+      console.log("--==valueChanges==--");
       console.log(data);
+      this.enteredEmail = "";
+      this.enteredPassword = "";
+      if(data){
+        this.User = data;
+      }else{
+        this.LoginError = " Incorrect Email/Password"
+      }
   	});
-
   }
 
   register(){
@@ -60,8 +68,18 @@ export class LoginViewComponent implements OnInit {
     this.item = this.itemDoc.valueChanges().subscribe( data => {
 		  console.log("--==valueChanges==--");
       console.log(data);
+
+      this.LoginError = "Problem making Account"
+      this.enteredEmail = "";
+      this.enteredPassword = "";
+
   	});
 
+  }
+
+  loggout(){
+    this.User = null;
+    this.hideDisplay = false;
   }
 
   getDiv(e, loginView) {

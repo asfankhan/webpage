@@ -14,3 +14,14 @@
     transition-duration: .5s;
 
 }
+
+.tabBtn{
+
+    background: #333; color:white; 
+    height: 100%;
+
+    :Hover{
+        background: #444;
+        cursor: pointer;
+    }
+}
