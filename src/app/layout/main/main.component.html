@@ -1,12 +1,19 @@
+<tile class="card-wrapper" [data]="objStyle[0]" [edge]='isEdge(0)'></tile>
 
+<!-- 
 <div style="height: 100%;width: calc( 100% - 40px);left: 40px;position: absolute;">
   <div class="left" (mouseenter)="scrollRight=false;scrollLeft=true" (mouseleave)="scrollLeft=false">
     <i class="fas fa-caret-left arrow"></i>
   </div>
 
-  <div class="row scrolling-wrapper-flexbox" style="">
+  <div class="row scrolling-wrapper-flexbox">
 
-    <tile class="card-wrapper" *ngFor="let data of objStyle; let i = index" [data]="data" [edge]='isEdge(i)' [bodyTemplate]='oneTemplate'></tile>
+    <tile class="card-wrapper" [data]="objStyle[1]" [edge]='isEdge(1)' [bodyTemplate]='ProfileTemplate'></tile>
+    <tile class="card-wrapper" [data]="objStyle[2]" [edge]='isEdge(2)' [bodyTemplate]='ChatTemplate'></tile>
+    <tile class="card-wrapper" [data]="objStyle[3]" [edge]='isEdge(3)' [bodyTemplate]='oneTemplate'></tile>
+    <tile class="card-wrapper" [data]="objStyle[4]" [edge]='isEdge(4)' [bodyTemplate]='oneTemplate'></tile>
+    <tile class="card-wrapper" [data]="objStyle[5]" [edge]='isEdge(5)' [bodyTemplate]='oneTemplate'></tile>
+
 
   </div>
 
@@ -20,3 +27,26 @@
     sssssssssss
   </div>
 </ng-template>
+
+<ng-template #ProfileTemplate>
+  <div class="row" style="padding: 10px;height: calc(100% - 90px);overflow: hidden;">
+
+    <div class="col-12 row" style="background: #8a1511; height: 125px;">
+      <div class="col-12 row" style="height: 25px;line-height: 25px;">
+        <div class="col-3">first Link</div>
+        <hr class="col-8" style="border: .5px #ccc solid;top:-2.5px;" /> 
+      </div>
+      <div class="col-12 row" style="height: 75px;line-height: 50px;">
+        <div class="col">this is the description of the first link</div>
+      </div>
+      <a href="google.com" class="col-12" style="height: 25px;line-height: 25px;background: #6a1511;padding-left: 5px">google.com</a>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #ChatTemplate>
+  <div class="row" style="padding: 10px;height: calc(100% - 90px);overflow: hidden;">
+    s
+  </div>
+</ng-template> -->

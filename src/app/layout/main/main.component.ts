@@ -47,9 +47,9 @@ export class MainComponent implements OnInit {
     width:'200px',
     description:"this is a description of the tab that was created, it is only temporary and will be replaces",
     subDescription:"this is a sub description",
-    img:"../../../assets/temp.jpg"
+    img:"../../../assets/temp1.jpg"
   },{
-    title:"Place Holder 2",
+    title:"Profile",
     color:"white",
     font:"23px",
     background:"#ad3f3f",
@@ -57,9 +57,9 @@ export class MainComponent implements OnInit {
     width:'200px',
     description:"this is a description of the tab that was created, it is only temporary and will be replaces",
     subDescription:"this is a sub description",
-    img:"../../../assets/temp.jpg"
+    img:"../../../assets/temp2.jpg"
   },{
-    title:"Place Holder 3",
+    title:"Chat Room",
     color:"white",
     font:"23px",
     background:"#ad763f",
@@ -67,7 +67,7 @@ export class MainComponent implements OnInit {
     width:'200px',
     description:"this is a description of the tab that was created, it is only temporary and will be replaces",
     subDescription:"this is a sub description",
-    img:"../../../assets/temp.jpg"
+    img:"../../../assets/temp3.jpg"
   },{
     title:"Place Holder 4",
     color:"white",
@@ -77,7 +77,7 @@ export class MainComponent implements OnInit {
     width:'200px',
     description:"this is a description of the tab that was created, it is only temporary and will be replaces",
     subDescription:"this is a sub description",
-    img:"../../../assets/temp.jpg"
+    img:"../../../assets/temp4.jpg"
   },{
     title:"Place Holder 5",
     color:"white",
@@ -87,7 +87,7 @@ export class MainComponent implements OnInit {
     width:'200px',
     description:"this is a description of the tab that was created, it is only temporary and will be replaces",
     subDescription:"this is a sub description",
-    img:"../../../assets/temp.jpg"
+    img:"../../../assets/temp6.jpg"
   },{
     title:"Place Holder 6",
     color:"white",
@@ -97,6 +97,6 @@ export class MainComponent implements OnInit {
     width:'200px',
     description:"this is a description of the tab that was created, it is only temporary and will be replaces",
     subDescription:"this is a sub description",
-    img:"../../../assets/temp.jpg"
+    img:"../../../assets/temp3.jpg"
   }]
 }
