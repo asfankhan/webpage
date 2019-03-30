@@ -1,10 +1,10 @@
 $SidebarWidth: 40px;
 
-.main{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-}
+// .main{
+//     position: fixed;
+//     height: 100%;
+//     width: 100%;
+// }
 
 // .sidebar{
 //     width:$SidebarWidth;
@@ -17,11 +17,16 @@ $SidebarWidth: 40px;
 // }
 
 .screen{
-    position: absolute;
-    left: $SidebarWidth;
+    width: 100%;
     height: 100%;
-    width: calc(100% - 40px);
-    background: #474747;
+    position: absolute;
+    top: 0px;
+    left: 0px;
     overflow: hidden;
-
+}
+.row{
+    margin-right: 5px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    margin-left: 5px;
 }

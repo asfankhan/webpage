@@ -1,7 +1,9 @@
-import { Component, OnInit, HostListener, EventEmitter } from '@angular/core';
+import { Component, OnInit, HostListener, EventEmitter,ViewChild } from '@angular/core';
 
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+
+import { InfoService } from '../../services/info.service';
 
 @Component({
   selector: 'login-view',
@@ -19,6 +21,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 })
 export class LoginViewComponent implements OnInit {
 
+  @ViewChild("loginView") lview;
+
   //mouseup = new EventEmitter();
   //@HostListener('mouseup', ['$event'])
   //onMouseup(e) {
@@ -28,7 +32,6 @@ export class LoginViewComponent implements OnInit {
   enteredPassword = 'test'
 
   loggedIn = false;
-  User = null;
   
   hideDisplay = false;
   movingDisplay = false;
@@ -40,7 +43,7 @@ export class LoginViewComponent implements OnInit {
   itemDoc;
   item;
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore, public data:InfoService) { }
 
   ngOnInit() {
 
@@ -48,37 +51,37 @@ export class LoginViewComponent implements OnInit {
 
   LoginError = ''
   login(){
-    console.log(this.enteredEmail + "-" + this.enteredPassword)
-    this.itemDoc = this.afs.doc('Users/'+ this.enteredEmail + "-" + this.enteredPassword );
-    this.item = this.itemDoc.valueChanges().subscribe( data => {
-      console.log("--==valueChanges==--");
-      console.log(data);
-      this.enteredEmail = "";
-      this.enteredPassword = "";
-      if(data){
-        this.User = data;
-      }else{
-        this.LoginError = " Incorrect Email/Password"
-      }
-  	});
+    // console.log(this.enteredEmail + "-" + this.enteredPassword)
+    // this.itemDoc = this.afs.doc('Users/'+ this.enteredEmail + "-" + this.enteredPassword );
+    // this.item = this.itemDoc.valueChanges().subscribe( data => {
+    //   console.log("--==valueChanges==--");
+    //   console.log(data);
+    //   this.enteredEmail = "";
+    //   this.enteredPassword = "";
+    //   if(data){
+    //     this.data.User = data
+    //   }else{
+    //     this.LoginError = " Incorrect Email/Password"
+    //   }
+  	// });
   }
 
   register(){
-    this.itemDoc = this.afs.doc('Users/'+ this.enteredEmail + "-" + this.enteredPassword );
-    this.item = this.itemDoc.valueChanges().subscribe( data => {
-		  console.log("--==valueChanges==--");
-      console.log(data);
+    // this.itemDoc = this.afs.doc('Users/'+ this.enteredEmail + "-" + this.enteredPassword );
+    // this.item = this.itemDoc.valueChanges().subscribe( data => {
+		//   console.log("--==valueChanges==--");
+    //   console.log(data);
 
-      this.LoginError = "Problem making Account"
-      this.enteredEmail = "";
-      this.enteredPassword = "";
+    //   this.LoginError = "Problem making Account"
+    //   this.enteredEmail = "";
+    //   this.enteredPassword = "";
 
-  	});
+  	// });
 
   }
 
   loggout(){
-    this.User = null;
+    this.data.User = null;
     this.hideDisplay = false;
   }
 
@@ -91,9 +94,20 @@ export class LoginViewComponent implements OnInit {
 
   moveDiv(e){
     if(this.movingDisplay == true){
-      console.log(e)
-      this.position.x = e.pageX - 150;
-      this.position.y = e.pageY - 12.5;
+      let view = this.lview.nativeElement;
+      // console.log(e)
+      // console.log(this.lview)
+      // console.log(window.innerWidth)
+      // console.log(e.pageX)
+      // console.log(this.lview.scrollWidth/2 )
+
+      if(window.innerWidth - view.scrollWidth/2 > e.pageX &&  view.scrollWidth/2 < e.pageX ){
+        this.position.x = e.pageX - view.scrollWidth/2;
+
+      }
+      if(window.innerHeight - view.scrollHeight/2 > e.pageY &&  view.scrollHeight/2 + 10 < e.pageY){
+        this.position.y = e.pageY - view.scrollHeight/2;  
+      }
     }
   }
 

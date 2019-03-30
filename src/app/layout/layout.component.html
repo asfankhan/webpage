@@ -1,7 +1,28 @@
 
-<login-view></login-view>
 
-<div style="width: 100%; height: 100%;">
-    <sidebar style="width: 40px; height:100%; background: #444;position: absolute;"></sidebar>
-    <router-outlet class="screen"></router-outlet>
+<div style="width: 100%; height: 100%; overflow: hidden; background:#555;">
+
+    <div class="row">
+        <input #email type="text" placeholder="Email"/>
+
+        <input #password type="text" placeholder="Password"/>
+
+        <button class='btn btn-primary' (click)="signUp(email.value, password.value)">Sign Up</button>
+    </div>
+
+    <div class="row">
+        <input type="text" placeholder="Email"/>
+
+        <input type="text" placeholder="Password"/>
+
+        <button class='btn btn-primary'>Sign In</button>
+        <button class='btn btn-info'>Sign Out</button>
+
+    </div>
+    
+    <!-- <login-view></login-view> -->
+
+    <!-- <sidebar style="width: 40px; height:100%; background: #444;position: absolute;"></sidebar>-->
+    <!-- <router-outlet class="screen"></router-outlet>  -->
+
 </div>

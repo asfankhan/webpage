@@ -1,23 +1,22 @@
 <div #loginView class="row" style="position: absolute; z-index: 10;background: #555; width: 300px;box-shadow: 1px 1px 6px #333"
-  [ngStyle]="{left : position.x + 'px', top: position.y + 'px'}">
+  [ngStyle]="{left : position.x + 'px', top: position.y + 'px'}"  (mousemove)="moveDiv($event)" (mouseup)="setDiv($event)" (mouseleave)="setDiv($event)">
   
   <div class="col-12 row" style="width: 100%;background: #444; color: white; height: 25px; font-weight: 500;">
-    <div class="col" style="padding-left: 10px;" 
-      (mousedown)="getDiv($event, loginView)"  (mousemove)="moveDiv($event)" (mouseup)="setDiv($event)" (mouseleave)="setDiv($event)">
-        {{User ? User.Email : "Not Logged In"}}
+    <div class="col" style="padding-left: 10px; cursor: pointer;" (mousedown)="getDiv($event, loginView)">
+        {{data.User ? data.User.Email : "Not Logged In"}}
     </div>
 
     <div class="col-1 row tabBtn"  (click)="hideDisplay=!hideDisplay" >
         <i class="fas fa-minus" style="padding: 5px;"></i>
     </div>
     
-    <div *ngIf="User" class="col-1 row tabBtn" (click)="loggout()" >
+    <div *ngIf="data.User" class="col-1 row tabBtn" (click)="loggout()" >
       <i class="fas fa-power-off " style="padding: 5px;"></i>
     </div>
 
   </div>
 
-  <form  *ngIf="!hideDisplay && !User" [@fadeInOut] class="col-12" >
+  <form  *ngIf="!hideDisplay && !data.User" [@fadeInOut] class="col-12" >
     <div class="form-group">
       <input type="email" [(ngModel)]="enteredEmail" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
     </div>
@@ -29,11 +28,11 @@
     </div>
   </form>
   
-  <div *ngIf="!hideDisplay && !User" [@fadeInOut] class="col-6" style="opacity: 1">
+  <div *ngIf="!hideDisplay && !data.User" [@fadeInOut] class="col-6" style="opacity: 1">
     <button (click)="login()" class="btn btn-primary" style="width: 100%; font-weight: 500; border-radius: 0px;">Login</button>
   </div>
   
-  <div *ngIf="!hideDisplay && !User" [@fadeInOut] class="col-6">
+  <div *ngIf="!hideDisplay && !data.User" [@fadeInOut] class="col-6">
     <button (click)="register()" class="btn btn-info" style="width: 100%; font-weight: 500; border-radius: 0px;">SignUp</button>
   </div>
 

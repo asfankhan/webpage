@@ -1,11 +1,15 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 
+import { InfoService } from '../services/info.service';
+import { Socket } from 'ngx-socket-io';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+  
   scrollRight;
   scrollLeft;
   url = '';
@@ -13,90 +17,59 @@ export class MainComponent implements OnInit {
   
   element;
 
-  constructor(private elRef:ElementRef) { 
-    window.setInterval(() => {
-      if(this.scrollRight){
-        this.element.scrollBy(10,0);
-      }
-      if(this.scrollLeft){
-        this.element.scrollBy(-10,0);
-      }    
-    }, 25)
+  SelectedObjects = ["#508282","#cd5c5c"]
+  NotSelectedObjects = ["#222","#333","#444","#555","#666"]
+  
+  constructor(private elRef:ElementRef, public data:InfoService,
+    private socket: Socket) { 
+
+    // window.setInterval(() => {
+    //   if(this.scrollRight){
+    //     this.element.scrollBy(10,0);
+    //   }
+    //   if(this.scrollLeft){
+    //     this.element.scrollBy(-10,0);
+    //   }    
+    // }, 25)
+    this.setColors();
+  }
+  ngOnInit() {
+
+  }
+  setColors(){
+    // if(this.data.User){
+  
+    // for(let i = 0; i < this.data.Rooms.length; i++){
+    //   if(!this.data.Rooms[i].Client)
+    //     this.data.Rooms[i].Client = {}
+
+    //   console.log(this.data.Rooms[i].id)
+    //   console.log(this.data.User.Rooms)
+
+    //   console.log(this.data.User.Rooms[this.data.Rooms[i].id])
+      
+    //   if( this.data.User.Rooms[this.data.Rooms[i].id] ){
+    //     this.data.Rooms[i].Client.Background = this.SelectedObjects[Math.floor(Math.random() * Math.floor(this.SelectedObjects.length))]
+    //   }else{
+    //     this.data.Rooms[i].Client.Background = this.NotSelectedObjects[Math.floor(Math.random() * Math.floor(this.NotSelectedObjects.length))]
+    //   }
+    // }
+
+    // }
   }
 
-  ngOnInit() {
-  }
+ 
   ngAfterViewInit() {
-    this.element = this.elRef.nativeElement.querySelector('.scrolling-wrapper-flexbox');
+    // this.element = this.elRef.nativeElement.querySelector('.scrolling-wrapper-flexbox');
   }
   isEdge(var1){
-    if(var1==0)
-      return -1;
-    else if(var1==this.objStyle.length-1)
-      return 1;
-    else
-      return 0;
+    // if(var1==0)
+    //   return -1;
+    // else if(var1==this.objStyle.length-1)
+    //   return 1;
+    // else
+    //   return 0;
   }
 
-  objStyle=[{
-    title:"Place Holder 1",
-    color:"white",
-    font:"23px",
-    background:"#508282",
-    background2:"#5a9292",
-    width:'200px',
-    description:"this is a description of the tab that was created, it is only temporary and will be replaces",
-    subDescription:"this is a sub description",
-    img:"../../../assets/temp1.jpg"
-  },{
-    title:"Profile",
-    color:"white",
-    font:"23px",
-    background:"#ad3f3f",
-    background2:"#bd4949",
-    width:'200px',
-    description:"this is a description of the tab that was created, it is only temporary and will be replaces",
-    subDescription:"this is a sub description",
-    img:"../../../assets/temp2.jpg"
-  },{
-    title:"Chat Room",
-    color:"white",
-    font:"23px",
-    background:"#ad763f",
-    background2:"#bd8349",
-    width:'200px',
-    description:"this is a description of the tab that was created, it is only temporary and will be replaces",
-    subDescription:"this is a sub description",
-    img:"../../../assets/temp3.jpg"
-  },{
-    title:"Place Holder 4",
-    color:"white",
-    font:"23px",
-    background:"#763fad",
-    background2:"#8349bd",
-    width:'200px',
-    description:"this is a description of the tab that was created, it is only temporary and will be replaces",
-    subDescription:"this is a sub description",
-    img:"../../../assets/temp4.jpg"
-  },{
-    title:"Place Holder 5",
-    color:"white",
-    font:"23px",
-    background:"#bd49bd",
-    background2:"#ad3fad",
-    width:'200px',
-    description:"this is a description of the tab that was created, it is only temporary and will be replaces",
-    subDescription:"this is a sub description",
-    img:"../../../assets/temp6.jpg"
-  },{
-    title:"Place Holder 6",
-    color:"white",
-    font:"23px",
-    background:"#508250",
-    background2:"#5a925a",
-    width:'200px',
-    description:"this is a description of the tab that was created, it is only temporary and will be replaces",
-    subDescription:"this is a sub description",
-    img:"../../../assets/temp3.jpg"
-  }]
+
 }
