@@ -8,21 +8,44 @@
         <input #password type="text" placeholder="Password"/>
 
         <button class='btn btn-primary' (click)="signUp(email.value, password.value)">Sign Up</button>
+
+        <div style="padding-left: 5px;">{{signUpData?.message}}</div>
     </div>
 
     <div class="row">
-        <input type="text" placeholder="Email"/>
+        <input #email1 type="text" placeholder="Email"/>
 
-        <input type="text" placeholder="Password"/>
+        <input #password1 type="text" placeholder="Password"/>
 
-        <button class='btn btn-primary'>Sign In</button>
-        <button class='btn btn-info'>Sign Out</button>
+        <button class='btn btn-primary' (click)="signIn(email1.value, password1.value)">Sign In</button>
+        <button class='btn btn-info' (click)="signOut()">Sign Out</button>
+
+        <div *ngIf="signInData" style="padding-left: 5px;">Sign In: {{signInData.data?.email}}</div>
 
     </div>
     
+    <div class="row">
+
+        <input #name1 type="text" placeholder="Room Name"/>
+
+        <button class='btn btn-primary' (click)="roomCreate(name1.value)">Room Create</button>
+
+    </div>
+
+    <div *ngFor="let room of roomData" class="row">
+
+            <div style="padding-left: 5px;">room: {{room?.name}}</div>
+    
+            <button class='btn btn-primary' (click)="roomJoin()">Room Join</button>
+    
+    </div>
+</div>
+
+<!-- <div style="width: 100%; height: 100%; overflow: hidden; background:#555;"> -->
+
     <!-- <login-view></login-view> -->
 
     <!-- <sidebar style="width: 40px; height:100%; background: #444;position: absolute;"></sidebar>-->
     <!-- <router-outlet class="screen"></router-outlet>  -->
 
-</div>
+<!-- </div> -->

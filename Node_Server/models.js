@@ -6,7 +6,11 @@ const Schema = mongoose.Schema;
 //Create Schema and model
 const UserSchema = new Schema({
 	email: String, 
-	password: String
+    password: String,
+    rooms:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Room"
+    }]
 });
 const UserModel =  mongoose.model('Users',UserSchema);
 
@@ -18,7 +22,7 @@ const RoomSchema = new Schema({
     Description: String
 },{ minimize: false });
 
-// const RoomsModel = mongoose.model('Rooms',RoomsSchema);
+const RoomModel = mongoose.model('Room',RoomSchema);
 
 
 // const ChannelSchema = new Schema({
@@ -57,5 +61,6 @@ const RoomSchema = new Schema({
 module.exports = { 
 	mongoose : mongoose,
 	UserModel : UserModel,
-	RoomSchema : RoomSchema
+    RoomSchema : RoomSchema,
+    RoomModel : RoomModel
 }
